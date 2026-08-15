@@ -13,10 +13,10 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
       <div className="absolute inset-x-6 bottom-12 text-white sm:inset-x-16 sm:bottom-16 lg:bottom-20">
-        <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-xs">
+        <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.28em] sm:text-[11px] text-white/80">
           Embiente Guest House · Negombo, Sri Lanka
         </p>
-        <h1 className="max-w-3xl font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
+        <h1 className="max-w-3xl font-serif italic text-5xl leading-[0.92] tracking-tight sm:text-6xl lg:text-[7rem]">
           A little oasis.
           <br />
           Close to the sea.

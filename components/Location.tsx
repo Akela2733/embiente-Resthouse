@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EyebrowReveal, TextRevealLines, FadeUp, FadeLeft, Stagger, StaggerItem, ImageReveal } from "@/components/ui/Animate";
 
 const nearby = [
   ["Negombo Beach", "600 m · 7 min walk"],
@@ -11,41 +12,43 @@ const Location = () => {
   return (
     <section id="location" className="bg-[#f4f0e8] px-3 py-3 sm:px-5 sm:py-5">
       <div className="grid overflow-hidden border border-stone-300/60 text-stone-800 lg:grid-cols-[0.75fr_1.35fr_1.1fr]">
-        <div className="px-8 py-12 sm:px-14 lg:px-12 lg:py-14 xl:px-16">
-          <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">
-            Location / 05
-          </p>
-          <h2 className="font-serif text-4xl leading-[0.96] tracking-tight sm:text-5xl">
-            Close to
-            <br />
-            everything.
-            <br />
-            Far from
-            <br />
-            the noise.
-          </h2>
-          <div className="my-7 h-px w-8 bg-stone-700" />
-          <p className="max-w-xs text-sm leading-7 text-stone-600">
-            Perfectly located in Eththukala, just steps from the beach and close
-            to everything you need.
-          </p>
-          <ul className="mt-7 space-y-3">
-            {nearby.map(([place, distance]) => (
-              <li
-                key={place}
-                className="flex items-center justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.08em] text-stone-500"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-stone-500" />
-                  {place}
-                </span>
-                <span className="shrink-0">{distance}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <FadeLeft className="px-6 py-10 sm:px-14 lg:px-12 lg:py-14 xl:px-16">
+          <div>
+            <EyebrowReveal>
+              <p className="mb-4 sm:mb-6 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">
+                Location / 06
+              </p>
+            </EyebrowReveal>
+            <TextRevealLines
+              lines={["Close to", "everything.", "Far from", "the noise."]}
+              tag="h2"
+              className="font-serif italic text-3xl sm:text-5xl leading-[0.96] tracking-tight"
+              delay={0.1}
+            />
+            <FadeUp delay={0.35}>
+              <div className="my-7 h-px w-8 bg-stone-700" />
+              <p className="max-w-xs text-sm leading-7 text-stone-600">
+                Perfectly located in Eththukala, just steps from the beach and close
+                to everything you need.
+              </p>
+            </FadeUp>
+            <Stagger className="mt-7 space-y-3">
+              {nearby.map(([place, distance]) => (
+                <StaggerItem key={place}>
+                  <li className="flex items-center justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.08em] text-stone-500">
+                    <span className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-stone-500" />
+                      {place}
+                    </span>
+                    <span className="shrink-0">{distance}</span>
+                  </li>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </FadeLeft>
 
-        <div className="relative min-h-[330px] lg:min-h-full">
+        <ImageReveal className="min-h-[330px] lg:min-h-full" delay={0.2}>
           <Image
             src="/stay/beach2.png"
             alt="Sunset at Negombo Beach near Embiente"
@@ -53,9 +56,9 @@ const Location = () => {
             sizes="(max-width: 1024px) 100vw, 48vw"
             className="object-cover"
           />
-        </div>
+        </ImageReveal>
 
-        <div className="relative min-h-[330px] overflow-hidden bg-[#e9e4da] lg:min-h-full">
+        <FadeUp className="relative min-h-[330px] overflow-hidden bg-[#e9e4da] lg:min-h-full" delay={0.35}>
           <iframe
             title="Map showing Embiente Guest House in Eththukala, Negombo"
             src="https://www.google.com/maps?q=7.23702,79.8432&z=15&output=embed"
@@ -76,7 +79,7 @@ const Location = () => {
               EMBIENTE
             </span>
           </div>
-        </div>
+        </FadeUp>
       </div>
     </section>
   );

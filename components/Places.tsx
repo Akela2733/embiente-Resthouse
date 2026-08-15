@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EyebrowReveal, TextRevealLines, FadeUp, Stagger, StaggerItem } from "@/components/ui/Animate";
 
 type AmenityIcon = "pool" | "garden" | "loungers" | "quiet";
 
@@ -79,38 +80,44 @@ const Places = () => {
           sizes="(max-width: 640px) 100vw, 96vw"
           className="-z-20 object-cover object-[58%_center]"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,13,10,0.88)_0%,rgba(12,17,12,0.67)_43%,rgba(10,15,11,0.16)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(9,13,10,0.92)_0%,rgba(12,17,12,0.85)_60%,rgba(10,15,11,0.6)_100%)] sm:bg-[linear-gradient(90deg,rgba(9,13,10,0.88)_0%,rgba(12,17,12,0.67)_43%,rgba(10,15,11,0.16)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-black/10" />
 
         <div className="flex min-h-[470px] max-w-md flex-col justify-between sm:min-h-[510px]">
           <div>
-            <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-300">
-              The oasis / 02
-            </p>
-            <h2 className="font-serif text-4xl leading-[0.98] tracking-tight sm:text-5xl lg:text-6xl">
-              Your own
-              <br />
-              little piece of paradise.
-            </h2>
-            <div className="my-7 h-px w-8 bg-stone-300/75" />
-            <p className="max-w-xs text-sm leading-7 text-stone-200 sm:text-[15px]">
-              Step through the gates and leave the energy of Negombo behind.
-              Surrounded by greenery, the garden and pool create a peaceful
-              place to swim, rest and simply do nothing.
-            </p>
+            <EyebrowReveal>
+              <p className="mb-4 sm:mb-6 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-300">
+                The oasis / 02
+              </p>
+            </EyebrowReveal>
+
+            <TextRevealLines
+              lines={["Your own", "little piece of paradise."]}
+              tag="h2"
+              className="font-serif italic text-3xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight"
+              delay={0.1}
+            />
+
+            <FadeUp delay={0.35}>
+              <div className="my-7 h-px w-8 bg-stone-300/75" />
+              <p className="max-w-xs text-sm leading-7 text-stone-200 sm:text-[15px]">
+                Step through the gates and leave the energy of Negombo behind.
+                Surrounded by greenery, the garden and pool create a peaceful
+                place to swim, rest and simply do nothing.
+              </p>
+            </FadeUp>
           </div>
 
-          <ul className="grid max-w-2xl grid-cols-2 gap-x-7 gap-y-5 pt-10 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-5">
+          <Stagger className="grid max-w-2xl grid-cols-2 gap-x-7 gap-y-5 pt-10 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-5">
             {amenities.map(({ label, icon }) => (
-              <li
-                key={label}
-                className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-stone-200"
-              >
-                <AmenityIcon icon={icon} />
-                <span>{label}</span>
-              </li>
+              <StaggerItem key={label}>
+                <li className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-stone-200">
+                  <AmenityIcon icon={icon} />
+                  <span>{label}</span>
+                </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </div>
     </section>

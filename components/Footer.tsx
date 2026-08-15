@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const bookingUrl = "https://www.booking.com/hotel/lk/embiente-guest-house-dalupotha.en-gb.html?aid=356938&label=metagha-link-LULK-hotel-1635859_dev-desktop_los-1_bw-8_dow-Sunday_defdate-1_room-0_gstadt-2_rateid-dg_aud-0_gacid-21411118307_mcid-10_ppa-0_clrid-0_ad-1_gstkid-0_checkin-20260823_ppt-G_lp-2144_r-16952218368638342802&sid=657a061772fa5f9d536898263d69fb3c&checkin=2026-08-23&checkout=2026-08-24&dest_id=1635859&dest_type=hotel&dist=0&do_availability_check=1&group_adults=1&group_children=0&hp_avform=1&hp_group_set=0&no_rooms=1&origin=hp&sb_price_type=total&src=hotel&type=total";
 
 const SocialIcon = ({ type }: { type: "booking" | "whatsapp" | "map" | "phone" }) => {
@@ -13,8 +15,8 @@ const SocialIcon = ({ type }: { type: "booking" | "whatsapp" | "map" | "phone" }
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-[#f4f0e8] px-6 pb-6 pt-16 text-stone-700 sm:px-12 sm:pb-8 lg:px-16 lg:pt-20">
-      <div className="mx-auto grid max-w-7xl gap-12 border-t border-stone-300 pt-10 sm:grid-cols-2 lg:grid-cols-[1.45fr_0.85fr_0.85fr_0.85fr] lg:gap-16">
+    <footer id="contact" className="bg-[#f4f0e8] px-5 pb-8 pt-12 text-stone-700 sm:px-12 sm:pb-8 lg:px-16 lg:pt-20">
+      <div className="mx-auto grid max-w-7xl gap-10 border-t border-stone-300 pt-10 sm:grid-cols-2 lg:grid-cols-[1.45fr_0.85fr_0.85fr_0.85fr] lg:gap-16">
         <div>
           <a href="/" className="font-serif text-3xl tracking-[0.13em] text-stone-800">EMBIENTE</a>
           <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.2em] text-stone-500">Guest house · Negombo</p>
@@ -36,6 +38,7 @@ const Footer = () => {
             <li><a href="#stay" className="transition-opacity hover:opacity-55">Stay</a></li>
             <li><a href="#places" className="transition-opacity hover:opacity-55">Experience</a></li>
             <li><a href="#places" className="transition-opacity hover:opacity-55">The garden</a></li>
+            <li><Link href="/gallery" className="transition-opacity hover:opacity-55">Gallery</Link></li>
             <li><a href="#location" className="transition-opacity hover:opacity-55">Location</a></li>
           </ul>
         </nav>
