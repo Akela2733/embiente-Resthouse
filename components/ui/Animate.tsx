@@ -15,6 +15,8 @@ interface TextRevealProps {
   staggerDelay?: number;
 }
 
+const easeCustom = [0.22, 1, 0.36, 1] as const;
+
 export function TextReveal({
   text,
   tag: Tag = "h2",
@@ -38,7 +40,7 @@ export function TextReveal({
             transition={{
               duration: 0.75,
               delay: delay + i * staggerDelay,
-              ease: [0.22, 1, 0.36, 1],
+              ease: easeCustom,
             }}
           >
             {word}
@@ -81,7 +83,7 @@ export function TextRevealLines({
             transition={{
               duration: 0.8,
               delay: delay + lineIdx * 0.14,
-              ease: [0.22, 1, 0.36, 1],
+              ease: easeCustom,
             }}
           >
             {line}
@@ -114,7 +116,7 @@ export function FadeUp({ children, delay = 0, duration = 0.7, className = "", y 
       className={className}
       initial={{ opacity: 0, y }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration, delay, ease: easeCustom }}
     >
       {children}
     </motion.div>
@@ -134,7 +136,7 @@ export function FadeLeft({ children, delay = 0, className = "" }: Omit<FadeUpPro
       className={className}
       initial={{ opacity: 0, x: -40 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.8, delay, ease: easeCustom }}
     >
       {children}
     </motion.div>
@@ -154,7 +156,7 @@ export function FadeRight({ children, delay = 0, className = "" }: Omit<FadeUpPr
       className={className}
       initial={{ opacity: 0, x: 40 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.8, delay, ease: easeCustom }}
     >
       {children}
     </motion.div>
@@ -175,7 +177,7 @@ const staggerContainer = {
 };
 const staggerItem = {
   hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: easeCustom } },
 };
 
 export function Stagger({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -226,7 +228,7 @@ export function ImageReveal({
         className="absolute inset-0 bg-[#f4f0e8] origin-right z-10"
         initial={{ scaleX: 1 }}
         animate={isInView ? { scaleX: 0 } : {}}
-        transition={{ duration: 0.9, delay, ease: [0.76, 0, 0.24, 1] }}
+        transition={{ duration: 0.9, delay, ease: [0.76, 0, 0.24, 1] as const }}
       />
     </div>
   );

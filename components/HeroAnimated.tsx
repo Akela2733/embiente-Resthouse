@@ -13,7 +13,7 @@ const HeroAnimated = () => {
         className="absolute inset-0"
         initial={{ scale: 1.06 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 2.2, ease }}
       >
         <Image
           src="/hero.png"
@@ -56,7 +56,7 @@ const HeroAnimated = () => {
                 transition={{
                   duration: 0.9,
                   delay: 0.85 + i * 0.18,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease,
                 }}
               >
                 {line}
