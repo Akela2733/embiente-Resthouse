@@ -100,6 +100,7 @@ const About = () => {
                   src="/about1.jpg"
                   alt="Embiente guest house lush garden path"
                   fill
+                  priority
                   sizes="(max-width: 1024px) 80vw, 40vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />

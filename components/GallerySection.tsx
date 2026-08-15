@@ -116,7 +116,7 @@ const GallerySection = () => {
             <div className="grid gap-4 sm:grid-cols-2 lg:gap-6">
               <div className="space-y-4 lg:space-y-6">
                 <ImageReveal className="aspect-[4/5]" delay={0.2}>
-                  <Link href="/gallery" className="block w-full h-full group">
+                  <Link href="/gallery" className="relative block w-full h-full group">
                     <Image
                       src="/gallary/gallarycover1.png"
                       alt="Swimming pool at Embiente"
@@ -131,7 +131,7 @@ const GallerySection = () => {
                 </ImageReveal>
 
                 <ImageReveal className="aspect-square" delay={0.38}>
-                  <Link href="/gallery" className="block w-full h-full group">
+                  <Link href="/gallery" className="relative block w-full h-full group">
                     <Image
                       src="/gallary/gallarycover2.png"
                       alt="Sri Lankan breakfast at Embiente"
@@ -148,7 +148,7 @@ const GallerySection = () => {
 
               <div className="space-y-4 lg:space-y-6 sm:pt-12">
                 <ImageReveal className="aspect-square" delay={0.52}>
-                  <Link href="/gallery" className="block w-full h-full group">
+                  <Link href="/gallery" className="relative block w-full h-full group">
                     <Image
                       src="/stay/breakfast.png"
                       alt="Cozy double bedroom"
@@ -163,7 +163,7 @@ const GallerySection = () => {
                 </ImageReveal>
 
                 <ImageReveal className="aspect-[4/5]" delay={0.68}>
-                  <Link href="/gallery" className="block w-full h-full group">
+                  <Link href="/gallery" className="relative block w-full h-full group">
                     <Image
                       src="/stay/Budget Double Room.png"
                       alt="Green gardens path"
